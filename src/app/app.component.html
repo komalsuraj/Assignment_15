@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <div class="row mx-auto" style="width: 900px;">
+      <div class="col-sm">
+        <h1 class="mx-auto" style="width: 300px; color:rgb(214, 69, 195)">Contact Our</h1>
+        <h1 class="mx-auto" style="width: 500px;">Customer Support Center</h1>
+      </div>
+    <div class="col-sm">
+      <img src="./../assets/images.jpeg" class="img-fluid" alt="Responsive image">
+    </div>
+  </div>
+  <div>
+    <div class="mx-auto mt-5" style="width: 400px;">
+      <h4>Contact Information</h4>
+      <h6>Please Fill out your contact information below.</h6>
+    </div>
+  </div>
+
+  <form [formGroup] = "CustomerSupportForm">
+    <div class="row mt-2" style="width: 500px;">
+      <label>Name *</label>
+      <div class="col-sm form-group">
+        <input [class.is-invalid] = "CustomerSupportForm.get('firstName')?.invalid" type="text" class="form-control" formControlName="firstName">
+        <small [class.d-none]="CustomerSupportForm.get('firstName')?.valid" class="text-danger">First Name is required</small>
+      </div>
+      <div class="col-sm">
+          <input type="text" [class.is-invalid] = "CustomerSupportForm.get('lastName')?.invalid" class="form-control" formControlName="lastName">
+          <small [class.d-none]="CustomerSupportForm.get('lastName')?.valid" class="text-danger">Last Name is required</small>
+      </div>
+    </div>
+    
+      <div class="col-sm form-group mt-2">
+        <label>Email *</label>
+        <input type="text" [class.is-invalid] = "CustomerSupportForm.get('email')?.invalid" class="form-control" formControlName="email">
+        <small [class.d-none]="CustomerSupportForm.get('email')?.valid" class="text-danger">Email is required</small>
+      </div>
+      
+      <div class="col-sm form-group mt-2">
+        <label>Phone *</label>
+        <input type="text" [class.is-invalid] = "CustomerSupportForm.get('phone_no')?.invalid" class="form-control" formControlName="phone_no">
+        <small [class.d-none]="CustomerSupportForm.get('phone_no')?.valid" class="text-danger">Phone number is required</small>
+      </div>
+
+      <div class="row form-group mt-2">
+        <label>City *</label>
+        <div class="col-sm-2">
+          <input type="text" [class.is-invalid] = "CustomerSupportForm.get('city')?.invalid" class="form-control" formControlName="city">
+          <small [class.d-none]="CustomerSupportForm.get('city')?.valid" class="text-danger">City is required</small>
+        </div>
+        <div class="col-sm-2">
+          <input type="text" [class.is-invalid] = "CustomerSupportForm.get('zipCode')?.invalid" class="form-control" formControlName="zipCode">
+          <small [class.d-none]="CustomerSupportForm.get('zipCode')?.valid" class="text-danger">Zip Code is required</small>
+        </div>
+        
+      </div>
+      <div class="col-sm form-group mt-2">
+        <label>Comments *</label>
+        <input type="text" [class.is-invalid] = "CustomerSupportForm.get('comment')?.invalid" class="form-control" formControlName="comment">
+        <small [class.d-none]="CustomerSupportForm.get('comment')?.valid" class="text-danger">Comment is required</small>
+      </div>
+      <div class="row form-group mt-3">
+        <button type="submit" [disabled]="!CustomerSupportForm.valid" class="btn mx-auto" style="width: 200px; background-color:rgb(214, 69, 195)">Submit</button>
+      </div>
+    </form>
+  <div>  {{CustomerSupportForm.value | json}}</div>
+<router-outlet></router-outlet>
